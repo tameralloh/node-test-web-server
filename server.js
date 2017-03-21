@@ -2,6 +2,11 @@ const express = require('express');
 const hbs = require('hbs');
 const fs = require('fs');
 
+
+// This code is just for heroku to take port automatically
+const port = process.env.PORT || 3000;
+
+
 //initiate express server
 var app = express();
 
@@ -68,6 +73,12 @@ app.get('/bad', (request, response) => {
 });
 
 // Define the port to listen to
-app.listen(3000, ()=> {
-  console.log('Up on 3000 port');
+
+// app.listen(3000, ()=> {
+//   console.log('Up on 3000 port');
+// });
+
+// Use dynamic port
+app.listen(port, ()=> {
+  console.log(`Up on ${port} port`);
 });
